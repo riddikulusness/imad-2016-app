@@ -6,22 +6,53 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var ArticleOne = {
-    title: 'Article One | Edith Andrews',
-    heading: 'Article One',
-    date: 'October 8, 2016',
-    content:`
-     <p>
-        This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
-    </p>
-     <p>
-        This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
-    </p>
-     <p>
-        This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
-    </p>`
+var articles = {
+    'article-one': {
+        title: 'Article One | Edith Andrews',
+        heading: 'Article One',
+        date: 'October 8, 2016',
+        content:`
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>`
+    },
+    'article-two':{
+         title: 'Article Two | Edith Andrews',
+        heading: 'Article Two',
+        date: 'October 9, 2016',
+        content:`
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>`
+    },
+    'article-three': {
+         title: 'Article Three | Edith Andrews',
+        heading: 'Article Three',
+        date: 'October 10, 2016',
+        content:`
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>
+         <p>
+            This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
+        </p>`
+    },
 };
-
 function createTemplate (data){
     var title = data.title;
     var date = data.date;
@@ -63,14 +94,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res){
-     res.send(createTemplate(ArticleOne));
+app.get('/:articleName', function (req, res){
+    var articleName = req.params.articleName;
+     res.send(createTemplate(articles[articleName]));
 });
-app.get('/article-two', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
