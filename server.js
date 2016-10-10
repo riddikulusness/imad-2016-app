@@ -7,9 +7,9 @@ app.use(morgan('combined'));
 
 
 var articleone = {
-    title: 'Article One | Edith Andrews'
-    heading: 'Article One'
-    date: 'October 8, 2016'
+    title: 'Article One | Edith Andrews',
+    heading: 'Article One',
+    date: 'October 8, 2016',
     content:`
      <p>
         This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
@@ -19,7 +19,7 @@ var articleone = {
     </p>
      <p>
         This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
-    </p>`
+    </p>`,
 };
 
 function createTemplate (data){
