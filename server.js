@@ -53,8 +53,8 @@ var htmlTemplate `
                 </h4>
             </div>
             ${content}
-        </body>
-    </div>
+        </div>
+    </body>
 </html>
 `;
 return htmlTemplate;
