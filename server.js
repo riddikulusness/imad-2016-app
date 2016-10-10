@@ -19,7 +19,7 @@ var articleone = {
     </p>
      <p>
         This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! This is content! 
-    </p>`,
+    </p>`
 };
 
 function createTemplate (data){
