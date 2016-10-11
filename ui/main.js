@@ -3,7 +3,7 @@ console.log('Loaded!');
 var element = document.getElementById('main-text');
 element.innerHTML = 'Hello';
 //move the image
-var img = document.getElementById('madi');
+var img = document.getElementById('twitter');
 img.onclick =function () {
     var marginLeft = 0;
     function moveRight(){
